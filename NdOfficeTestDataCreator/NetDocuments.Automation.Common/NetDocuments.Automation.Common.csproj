@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A78017FD-44F6-4557-88C4-886E86E618F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NetDocuments.Automation.Common</RootNamespace>
+    <AssemblyName>NetDocuments.Automation.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\FolderTreeNavigationEntity.cs" />
+    <Compile Include="Entities\LoginTestData.cs" />
+    <Compile Include="Entities\NdOfficeSettingsEntity.cs" />
+    <Compile Include="Entities\NodeDataEntity.cs" />
+    <Compile Include="Entities\Outlook\EmailItemIndexes.cs" />
+    <Compile Include="Entities\Outlook\EMCloudErrorMesseges.cs" />
+    <Compile Include="Entities\Outlook\OutlookSeparateWindowTitles.cs" />
+    <Compile Include="Entities\UserInfo.cs" />
+    <Compile Include="Entities\UserTypes.cs" />
+    <Compile Include="Exceptions\AdditionalCheckFailureException.cs" />
+    <Compile Include="Exceptions\Automation\FailedGetDialogDriverException.cs" />
+    <Compile Include="Exceptions\Automation\ParseException.cs" />
+    <Compile Include="Exceptions\Automation\WebProxyException.cs" />
+    <Compile Include="Exceptions\BrokenTestDataException.cs" />
+    <Compile Include="Exceptions\ComparisonFailureException.cs" />
+    <Compile Include="Exceptions\Extensibility\ExtensibilityLoginFailedException.cs" />
+    <Compile Include="Exceptions\Extensibility\ExtensibilityMethodFailedException.cs" />
+    <Compile Include="Exceptions\Interop\InvalidInteropOperationException.cs" />
+    <Compile Include="Exceptions\PreconditionException.cs" />
+    <Compile Include="Exceptions\Server\BadRequestException.cs" />
+    <Compile Include="Exceptions\Server\ForbiddenException.cs" />
+    <Compile Include="Exceptions\Server\InternalServerErrorException.cs" />
+    <Compile Include="Exceptions\Server\NoConnectionException.cs" />
+    <Compile Include="Exceptions\Server\NotFoundException.cs" />
+    <Compile Include="Exceptions\Server\RestRequestFailedException.cs" />
+    <Compile Include="Exceptions\Server\ServiceUnavailableException.cs" />
+    <Compile Include="Exceptions\Server\TooManyRequestsException.cs" />
+    <Compile Include="Exceptions\Server\UnauthorizedException.cs" />
+    <Compile Include="Exceptions\UI\AddinDisabledException.cs" />
+    <Compile Include="Exceptions\UI\DisabledElementException.cs" />
+    <Compile Include="Exceptions\UI\DocumentIsNotOpenedException.cs" />
+    <Compile Include="Exceptions\UI\ElementNotFoundException.cs" />
+    <Compile Include="Exceptions\UI\ElementUnavailableException.cs" />
+    <Compile Include="Exceptions\UI\IncorrectWindowStateException.cs" />
+    <Compile Include="Exceptions\UI\ItemIsNotPresentException.cs" />
+    <Compile Include="Exceptions\UI\LoadingTimeoutException.cs" />
+    <Compile Include="Exceptions\UI\LocationIsNotPresentException.cs" />
+    <Compile Include="Exceptions\UI\MSOfficeAppException.cs" />
+    <Compile Include="Exceptions\UI\NavigationFailedException.cs" />
+    <Compile Include="Exceptions\UI\NavigationUnavailableException.cs" />
+    <Compile Include="Exceptions\UI\UILoginFailedException.cs" />
+    <Compile Include="Exceptions\UI\UILogoutFailedException.cs" />
+    <Compile Include="Exceptions\UI\WindowHasNotAppearedException.cs" />
+    <Compile Include="Exceptions\UI\WindowHasNotDisappearedException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\FileSearchPatterns.cs" />
+    <Compile Include="Settings\HostSettings.cs" />
+    <Compile Include="Settings\NdOfficeConstants.cs" />
+    <Compile Include="Settings\ProcessNames.cs" />
+    <Compile Include="Settings\TimeConstants.cs" />
+    <Compile Include="Components\SettingStates.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

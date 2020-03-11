@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\DecoratorAddin.Fody.1.0.0.80\build\DecoratorAddin.Fody.props" Condition="Exists('..\packages\DecoratorAddin.Fody.1.0.0.80\build\DecoratorAddin.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB9153BB-463D-4162-86DF-211EF65AB7D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetDocuments.Automation.RestClient</RootNamespace>
+    <AssemblyName>NetDocuments.Automation.RestClient</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net48\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DecoratorAddin, Version=1.0.0.80, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\DecoratorAddin.Fody.1.0.0.80\lib\net452\DecoratorAddin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Client.COM, Version=2.7.0.326, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Client.COM.2.7.0.326\lib\net452\NetDocuments.Client.COM.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Client.Common.Contracts, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.Client.Common.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Decorators, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.Decorators.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.IoC, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Rest, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.Rest.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Rest.ContentServerHandler, Version=1.0.3.246, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.ContentServerHandler.1.0.3.246\lib\net46\NetDocuments.Rest.ContentServerHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Rest.Contracts, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.Rest.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="NetDocuments.Rest.Infrastructure, Version=2.7.0.14129, Culture=neutral, PublicKeyToken=5c5d9005e20d2078, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetDocuments.Rest.2.7.0.14129\lib\net452\NetDocuments.Rest.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly, Version=7.0.0.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly.7.2.0\lib\net472\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.3\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factories\IoCRestApiFactory.cs" />
+    <Compile Include="CustomRestClient.cs" />
+    <Compile Include="Factories\IRestApiFactory.cs" />
+    <Compile Include="Infrastructure\TokenInfo.cs" />
+    <Compile Include="Infrastructure\ClientData.cs" />
+    <Compile Include="Infrastructure\FormattersContainerWrapper.cs" />
+    <Compile Include="Infrastructure\InMemoryAuthenticationStorageAdapter.cs" />
+    <Compile Include="Infrastructure\OAuthFacade.cs" />
+    <Compile Include="IoC\RestClientComponentsModule.cs" />
+    <Compile Include="Models\AuthorizationResponse.cs" />
+    <Compile Include="NdRestApiFacade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Factories\DefaultRestApiFactory.cs" />
+    <Compile Include="Infrastructure\RetryPoliciesProvider.cs" />
+    <Compile Include="Infrastructure\UploadProgressTracker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NetDocuments.Automation.Common\NetDocuments.Automation.Common.csproj">
+      <Project>{A78017FD-44F6-4557-88C4-886E86E618F2}</Project>
+      <Name>NetDocuments.Automation.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetDocuments.Automation.Helpers\NetDocuments.Automation.Helpers.csproj">
+      <Project>{D26B1E36-BD27-43F7-AB07-D1553719865E}</Project>
+      <Name>NetDocuments.Automation.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.4.2.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.4.2.1\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\DecoratorAddin.Fody.1.0.0.80\build\DecoratorAddin.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DecoratorAddin.Fody.1.0.0.80\build\DecoratorAddin.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+</Project>
