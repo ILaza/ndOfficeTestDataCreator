@@ -6,6 +6,7 @@ using NetDocuments.Automation.TestDataManagement.Implementation;
 using NetDocuments.Automation.TestDataManagement.Entities;
 using NetDocuments.Automation.Helpers.Extensibility;
 using NetDocuments.Automation.Helpers.Entities;
+using NetDocuments.Automation.Helpers;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Diagnostics;
@@ -17,7 +18,10 @@ namespace NdOfficeTestDataCreator
     {
         static void Main(string[] args)
         {
-            const int  SIZE_FILE = 500;
+            int  sizeFileKB = 1;
+            const int WORD_COEFFICIENT = 1300;
+            const int EXCEL_COEFFICIENT = 120;
+            const int PP_COEFFICIENT = 200;
 
             var hostDucot = new HostSettings("api.ducot.netdocuments.com", "ducot.netdocuments.com", "https://api.ducot.netdocuments.com",
                                              "AP-BD15GCDS", "n9xbjBqraJ9iBuJIY8eQy59a9rRI7tm26oluLUkkNMMxzSBe", "https://localhost/");
@@ -29,29 +33,53 @@ namespace NdOfficeTestDataCreator
                                             PerformanceCredentials.cabinetFirstID, 
                                             new NdFoldersEntity());
 
-            var documentCreator = new DocumentCreator(repo, SIZE_FILE);
+            var documentCreator = new DocumentCreator(repo, sizeFileKB);
 
             WebDocumentInfo newDocumentInfo;
 
             var sw = Stopwatch.StartNew();
 
-            for (int i = 0; i < 1; i++)
-            {
-                newDocumentInfo = documentCreator.GetNewDocument("docx", SIZE_FILE);
-                DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
-            }
+            string pass = "C:\\Users\\ilaza\\PerformanceContent\\content_0_5_GB";
+            CreatorTxtFileHelper.CreateFile(pass, 536870912);
 
-            for (int i = 0; i < 1; i++)
-            {
-                newDocumentInfo = documentCreator.GetNewDocument("xlsx", SIZE_FILE);
-                DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
-            }
+            //// NOTE: Create 34 ".doc" files 300 Kb average.
+            //for (int i = 0; i < 1; i++)
+            //{
+            //    sizeFileKB = RandomHelper.GetRandomInt(110, 480);
+            //    newDocumentInfo = documentCreator.GetNewDocument("doc", sizeFileKB * WORD_COEFFICIENT);
+            //    DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
+            //}
 
-            for (int i = 0; i < 1; i++)
-            {
-                newDocumentInfo = documentCreator.GetNewDocument("pptx", SIZE_FILE);
-                DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
-            }
+            ////NOTE: Create ".docx" > 3MB && < 5MB
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    sizeFileKB = RandomHelper.GetRandomInt(3000, 5000);
+            //    newDocumentInfo = documentCreator.GetNewDocument("doc", sizeFileKB * WORD_COEFFICIENT);
+            //    DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
+            //}
+
+            ////create 34 ".docx" files 1.1MB - 4.8MB
+            //for (int i = 0; i < 34; i++)
+            //{
+            //    sizeFileKB = RandomHelper.GetRandomInt(110, 480);
+            //    newDocumentInfo = documentCreator.GetNewDocument("docx", sizeFileKB * WORD_COEFFICIENT);
+            //    DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
+            //}
+
+            ////create 34 ".xlsx" files 1.1MB - 4.8MB
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    sizeFileKB = RandomHelper.GetRandomInt(110, 480);
+            //    newDocumentInfo = documentCreator.GetNewDocument("xlsx", sizeFileKB * EXCEL_COEFFICIENT);
+            //    DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
+            //}
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    sizeFileKB = RandomHelper.GetRandomInt(110, 400);
+            //    newDocumentInfo = documentCreator.GetNewDocument("pptx", sizeFileKB * PP_COEFFICIENT);
+            //    DocumentManager.AddDocumentToACWithExtensibility(newDocumentInfo.Id, newDocumentInfo.OfficialVersion.Number, true, hostDucot);
+            //}
 
             //Parallel.ForEach(Enumerable.Range(0, 9), (i) =>
             //{

@@ -52,6 +52,7 @@ namespace NetDocuments.Automation.TestDataManagement.Implementation
 
             documentCreators = new Dictionary<string, Func<string, IEnumerable<char>, string>>
             {
+                ["doc"]  = CreateWordDocument,
                 ["docx"] = CreateWordDocument,
                 ["xlsx"] = CreateExcelDocument,
                 ["pptx"] = CreatePowerPointDocument,
@@ -291,14 +292,21 @@ namespace NetDocuments.Automation.TestDataManagement.Implementation
 
         private WebDocumentInfo CreateNewDocument(string docType, int sizeFile, string folderName = null, NdDocumentAttribute[] profileAttributes = null)
         {
+            Console.WriteLine($"Generating content with {sizeFile} length");
             var internalContent = RandomHelper.GetRandomContentPerformance(sizeFile);
+            Console.WriteLine("Content generated");
+
             documentCreators = new Dictionary<string, Func<string, IEnumerable<char>, string>>()
             {
+                ["doc"]  = CreateWordDocument,
                 ["docx"] = CreateWordDocument,
                 ["xlsx"] = CreateExcelDocument,
                 ["pptx"] = CreatePowerPointDocument,
             };
+
+            Console.WriteLine("Creating file..");
             var sourceFileName = documentCreators[docType](docType, internalContent);
+            Console.WriteLine($"File {sourceFileName} created");
 
             try
             {

@@ -60,7 +60,7 @@ namespace NetDocuments.Automation.TestDataManagement.Implementation
 
         public WebDocumentInfo CreateDocument(string folderName, string docType, string sourceFileName, NdDocumentAttribute[] profileAttributes)
         {
-            var folder = GetFolderByName(string.IsNullOrEmpty(folderName) ? FoldersStructure.Some : folderName);
+            var folder = GetFolderByName(string.IsNullOrEmpty(folderName) ? FoldersStructure.PerformanceTestFolder : folderName);
             var docName = Path.GetRandomFileName();
 
             var document = restApi.CreateNewDocument(folder.Id, $"{docName}.{docType}", sourceFileName, profileAttributes)

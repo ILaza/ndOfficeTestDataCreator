@@ -8,13 +8,7 @@
         /// <summary>
         /// Should be implemented to return some valid name in a repository.
         /// </summary>
-        string Some { get; }
-
-        /// <summary>
-        /// Should be implemented to return some valid folder name in a repository.
-        /// which satisfies the condition: Some != Another.
-        /// </summary>
-        string Another { get; }
+        string PerformanceTestFolder { get; }
 
         /// <summary>
         /// Should be implemented to return an array of folder names in a repository.

@@ -23,7 +23,7 @@ namespace NetDocuments.Automation.Helpers
         public static IEnumerable<char> GetRandomContentPerformance(int fileSize)
         {
             const string chars = "AB CDEF GHIJKLM NOPQRSTUVWXY Z0123456789 abcdefghijk lmnopq rstuvwxyz";
-            char[] data = new char[fileSize];
+            var data = new char[fileSize];
 
             data = (Enumerable.Repeat(chars, fileSize)
                               .Select(s => s[random.Next(s.Length)])

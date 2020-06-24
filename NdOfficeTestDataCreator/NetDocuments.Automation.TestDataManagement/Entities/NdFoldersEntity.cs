@@ -8,13 +8,10 @@ namespace NetDocuments.Automation.TestDataManagement.Entities
     public class NdFoldersEntity : IFoldersEntity
     {
         /// <inheritdoc cref="IFoldersEntity" />
-        public string Some { get; }
+        public string PerformanceTestFolder { get; }
 
         /// <inheritdoc cref="IFoldersEntity" />
-        public string Another { get; }
-
-        /// <inheritdoc cref="IFoldersEntity" />
-        public string[] FoldersNames => new[] { Some, Another };
+        public string[] FoldersNames => new[] { PerformanceTestFolder };
 
         public NdFoldersEntity()
         {
@@ -26,8 +23,7 @@ namespace NetDocuments.Automation.TestDataManagement.Entities
                                   .Version
                                   .ToString();
 
-            Some = $"Some_{now.ToString("yyyy_MM_dd")}_{version}";
-            Another = $"Another_{now.ToString("yyyy_MM_dd")}_{version}";
+            PerformanceTestFolder = $"Test Folder {now.ToString("yyyy_MM_dd")}_{version}";
         }
     }
 }

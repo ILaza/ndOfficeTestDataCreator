@@ -127,6 +127,7 @@
     <Compile Include="COMObjectsHelper.cs" />
     <Compile Include="Comparers\ComparerBase.cs" />
     <Compile Include="Comparers\ProfileAttributeComparer.cs" />
+    <Compile Include="CreatorTxtFileHelper.cs" />
     <Compile Include="EMCloudLogsHelper.cs" />
     <Compile Include="Entities\CabinetInfo.cs" />
     <Compile Include="Entities\DocumentInformation.cs" />
