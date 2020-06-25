@@ -58,6 +58,14 @@ namespace NetDocuments.Automation.TestDataManagement.Implementation
             internalFoldersStructure = CreateFoldersStructure(cabinetId, rootPath);
         }
 
+        public void CreateSubfolders(string parentFoldersID, int amountOfSubfolders)
+        {
+            for (int i = 1; i < amountOfSubfolders+1; i++)
+            {
+                CreateFolder($"Subfolder_{i}", parentFoldersID);
+            }
+        }
+
         public WebDocumentInfo CreateDocument(string folderName, string docType, string sourceFileName, NdDocumentAttribute[] profileAttributes)
         {
             var folder = GetFolderByName(string.IsNullOrEmpty(folderName) ? FoldersStructure.PerformanceTestFolder : folderName);

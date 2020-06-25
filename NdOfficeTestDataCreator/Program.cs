@@ -23,6 +23,10 @@ namespace NdOfficeTestDataCreator
             const int EXCEL_COEFFICIENT = 120;
             const int PP_COEFFICIENT = 200;
 
+            const string FOLDER_WITN_SUBFOLDERS_NAME = "TestFolderWithSubfolders";
+            const string FOLDER_WITN_SUBFOLDERS_ID = "4839-7613-0491";
+            const int AMOUNT_OF_SUBFOLDERS = 450;
+
             var hostDucot = new HostSettings("api.ducot.netdocuments.com", "ducot.netdocuments.com", "https://api.ducot.netdocuments.com",
                                              "AP-BD15GCDS", "n9xbjBqraJ9iBuJIY8eQy59a9rRI7tm26oluLUkkNMMxzSBe", "https://localhost/");
 
@@ -33,14 +37,14 @@ namespace NdOfficeTestDataCreator
                                             PerformanceCredentials.cabinetFirstID, 
                                             new NdFoldersEntity());
 
-            var documentCreator = new DocumentCreator(repo, sizeFileKB);
+            //repo.CreateSubfolders(FOLDER_WITN_SUBFOLDERS_ID, AMOUNT_OF_SUBFOLDERS);
 
-            WebDocumentInfo newDocumentInfo;
+            //var documentCreator = new DocumentCreator(repo, sizeFileKB);
 
-            var sw = Stopwatch.StartNew();
+            //WebDocumentInfo newDocumentInfo;
 
-            string pass = "C:\\Users\\ilaza\\PerformanceContent\\content_0_5_GB";
-            CreatorTxtFileHelper.CreateFile(pass, 536870912);
+            //string pass = "C:\\Users\\ilaza\\PerformanceContent\\content_0_5_GB";
+            //CreatorTxtFileHelper.CreateFile(pass, 536870912);
 
             //// NOTE: Create 34 ".doc" files 300 Kb average.
             //for (int i = 0; i < 1; i++)
@@ -105,8 +109,8 @@ namespace NdOfficeTestDataCreator
             //              }
             //          })
             //          .ToList();
-            Console.WriteLine(sw.Elapsed);
-                    //documentCreator.ClearAlldata();
+
+            //documentCreator.ClearAlldata();
         }
     }
 }
